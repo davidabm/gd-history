@@ -19,4 +19,14 @@ function reqListener() {
 }
 
 
+window.onload = function() {
+  var oReq = new XMLHttpRequest();
+  oReq.addEventListener("load", reqListener);
+  oReq.open("GET", "config.json");
+  oReq.send();
 
+  let igElem = document.getElementById('instagram');
+  if (igElem.href === 'https://www.instagram.com/') {
+    document.querySelector('div.footer').remove();
+  }
+};
